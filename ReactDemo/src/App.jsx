@@ -3,239 +3,318 @@ function App() {
     "https://res.cloudinary.com/devn2ez7p/image/upload/v1775848817/WA_1775848777544_lo4msf.jpg";
 
   return (
-    <div style={styles.page}>
-      {/* Stars */}
-      <div style={styles.star1}></div>
-      <div style={styles.star2}></div>
-      <div style={styles.star3}></div>
-      <div style={styles.star4}></div>
+    <>
+      <style>{`
+        *{
+          margin:0;
+          padding:0;
+          box-sizing:border-box;
+        }
 
-      {/* Hero */}
-      <div style={styles.hero}>
-        <div>
-          <h3 style={styles.hello}>👋 Hello, I'm</h3>
+        body{
+          font-family:Segoe UI,sans-serif;
+          background:#000;
+        }
 
-          <h1 style={styles.name}>
-            Mohammed <span style={{ color: "#4facfe" }}>AASIF</span>
-          </h1>
+        .container{
+          min-height:100vh;
+          background:
+          radial-gradient(circle at top,#001122,#000 50%),
+          linear-gradient(135deg,#000,#001a00);
+          color:white;
+          overflow:hidden;
+          position:relative;
+          padding:40px;
+        }
 
-          <h2 style={styles.role}>Java Backend Developer 🚀</h2>
+        .container::before{
+          content:'';
+          position:absolute;
+          width:200%;
+          height:200%;
+          background-image:
+          radial-gradient(#00ff41 1px, transparent 1px);
+          background-size:40px 40px;
+          opacity:.15;
+          animation:moveStars 80s linear infinite;
+        }
 
-          <p style={styles.desc}>
-            Passionate about Java, Spring Boot, REST APIs, MySQL and Backend
-            Development. Building scalable applications and continuously
-            learning new technologies.
-          </p>
+        @keyframes moveStars{
+          from{transform:translateY(0)}
+          to{transform:translateY(-1000px)}
+        }
 
-          <button style={styles.btn}>Let's Connect</button>
+        .hero{
+          display:flex;
+          justify-content:space-between;
+          align-items:center;
+          flex-wrap:wrap;
+          gap:40px;
+          position:relative;
+          z-index:2;
+        }
+
+        .left{
+          flex:1;
+          min-width:300px;
+        }
+
+        .hello{
+          color:#00ff41;
+          font-size:20px;
+          margin-bottom:10px;
+        }
+
+        .name{
+          font-size:70px;
+          font-weight:900;
+          text-shadow:0 0 20px #00ff41;
+        }
+
+        .role{
+          color:#00d9ff;
+          margin-top:10px;
+          font-size:28px;
+        }
+
+        .desc{
+          margin-top:20px;
+          line-height:1.8;
+          color:#cfcfcf;
+          max-width:650px;
+        }
+
+        .btns{
+          margin-top:25px;
+          display:flex;
+          gap:15px;
+          flex-wrap:wrap;
+        }
+
+        .btn{
+          padding:14px 28px;
+          border:none;
+          cursor:pointer;
+          font-weight:bold;
+          border-radius:10px;
+          background:#00ff41;
+          color:black;
+          box-shadow:0 0 20px #00ff41;
+        }
+
+        .btn2{
+          padding:14px 28px;
+          border:1px solid #00d9ff;
+          background:transparent;
+          color:#00d9ff;
+          border-radius:10px;
+        }
+
+        .photoBox{
+          width:330px;
+          height:330px;
+          border-radius:50%;
+          padding:6px;
+          background:
+          linear-gradient(45deg,#00ff41,#00d9ff,#00ff41);
+          box-shadow:
+          0 0 25px #00ff41,
+          0 0 60px #00d9ff;
+        }
+
+        .photo{
+          width:100%;
+          height:100%;
+          object-fit:cover;
+          border-radius:50%;
+        }
+
+        .card{
+          position:relative;
+          z-index:2;
+          margin-top:30px;
+          padding:25px;
+          border-radius:20px;
+          background:rgba(255,255,255,.05);
+          backdrop-filter:blur(10px);
+          border:1px solid rgba(0,255,65,.3);
+        }
+
+        .card h2{
+          color:#00ff41;
+          margin-bottom:15px;
+        }
+
+        .skills{
+          display:flex;
+          flex-wrap:wrap;
+          gap:12px;
+        }
+
+        .skill{
+          padding:10px 18px;
+          border:1px solid #00ff41;
+          border-radius:8px;
+          color:#00ff41;
+          box-shadow:0 0 10px #00ff41;
+        }
+
+        .terminal{
+          background:black;
+          border:1px solid #00ff41;
+          padding:20px;
+          border-radius:15px;
+          color:#00ff41;
+          font-family:monospace;
+          line-height:1.8;
+          box-shadow:0 0 20px #00ff41;
+        }
+
+        .projects{
+          display:grid;
+          grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+          gap:20px;
+          margin-top:20px;
+        }
+
+        .project{
+          padding:20px;
+          border-radius:15px;
+          background:rgba(255,255,255,.05);
+          border:1px solid rgba(0,217,255,.4);
+          transition:.3s;
+        }
+
+        .project:hover{
+          transform:translateY(-8px);
+          box-shadow:0 0 20px #00d9ff;
+        }
+
+        .project h3{
+          color:#00d9ff;
+          margin-bottom:10px;
+        }
+
+        .footer{
+          text-align:center;
+          margin-top:40px;
+          color:#bbb;
+        }
+      `}</style>
+
+      <div className="container">
+
+        <div className="hero">
+
+          <div className="left">
+
+            <p className="hello">{">"} INITIALIZING PROFILE...</p>
+
+            <h1 className="name">
+              MOHAMMED <span style={{ color: "#00d9ff" }}>AASIF</span>
+            </h1>
+
+            <h2 className="role">
+              JAVA BACKEND DEVELOPER 🚀
+            </h2>
+
+            <p className="desc">
+              Passionate about Java, Spring Boot, REST APIs,
+              MySQL and scalable backend systems.
+              Currently learning modern backend development
+              and preparing for product-based companies.
+            </p>
+
+            <div className="btns">
+              <button className="btn">CONNECT</button>
+              <button className="btn2">DOWNLOAD CV</button>
+            </div>
+
+          </div>
+
+          <div className="photoBox">
+            <img src={profile} alt="profile" className="photo" />
+          </div>
+
         </div>
 
-        <div style={styles.imageBox}>
-          <img src={profile} alt="profile" style={styles.image} />
-        </div>
-      </div>
+        <div className="card">
+          <h2>SYSTEM STATUS</h2>
 
-      {/* About */}
-      <div style={styles.card}>
-        <h2>✨ About Me</h2>
-
-        <p>
-          Computer Science Student passionate about Backend Development,
-          Problem Solving, APIs and Modern Web Technologies.
-        </p>
-      </div>
-
-      {/* Skills */}
-      <div style={styles.card}>
-        <h2>💻 Skills</h2>
-
-        <div style={styles.skills}>
-          <span style={styles.skill}>Java</span>
-          <span style={styles.skill}>Spring Boot</span>
-          <span style={styles.skill}>MySQL</span>
-          <span style={styles.skill}>REST API</span>
-          <span style={styles.skill}>Git</span>
-          <span style={styles.skill}>GitHub</span>
-          <span style={styles.skill}>React</span>
-        </div>
-      </div>
-
-      {/* Projects */}
-      <div style={styles.projects}>
-        <div style={styles.project}>
-          <h3>🛡 FraudShield AI</h3>
-          <p>
-            AI-powered scam detection application for SMS, Email and WhatsApp.
-          </p>
+          <div className="terminal">
+            <p>{">"} Loading User Data...</p>
+            <p>{">"} Java ✓</p>
+            <p>{">"} Spring Boot ✓</p>
+            <p>{">"} REST API ✓</p>
+            <p>{">"} MySQL ✓</p>
+            <p>{">"} GitHub ✓</p>
+            <p>{">"} Status : ONLINE</p>
+          </div>
         </div>
 
-        <div style={styles.project}>
-          <h3>☕ Java Internship Tasks</h3>
-          <p>Calculator, Fibonacci, Factorial, Palindrome Checker and more.</p>
+        <div className="card">
+          <h2>TECH STACK</h2>
+
+          <div className="skills">
+            <span className="skill">JAVA</span>
+            <span className="skill">SPRING BOOT</span>
+            <span className="skill">MYSQL</span>
+            <span className="skill">REST API</span>
+            <span className="skill">REACT</span>
+            <span className="skill">GIT</span>
+            <span className="skill">GITHUB</span>
+          </div>
         </div>
-      </div>
 
-      {/* Contact */}
-      <div style={styles.card}>
-        <h2>📞 Contact</h2>
+        <div className="card">
+          <h2>PROJECT DATABASE</h2>
 
-        <p>📧 aasif@example.com</p>
-        <p>💼 LinkedIn Profile</p>
-        <p>🐙 github.com/aasif-developer</p>
+          <div className="projects">
+
+            <div className="project">
+              <h3>🛡 FraudShield AI</h3>
+              <p>
+                AI-powered scam detection platform for
+                SMS, Email and WhatsApp fraud analysis.
+              </p>
+            </div>
+
+            <div className="project">
+              <h3>☕ Java Internship Tasks</h3>
+              <p>
+                Calculator, Fibonacci, Factorial,
+                Palindrome Checker and more.
+              </p>
+            </div>
+
+            <div className="project">
+              <h3>🚀 Backend API</h3>
+              <p>
+                Spring Boot REST API with MySQL
+                and layered architecture.
+              </p>
+            </div>
+
+          </div>
+        </div>
+
+        <div className="card">
+          <h2>CONNECT_PROTOCOL</h2>
+
+          <p>📧 aasif@example.com</p>
+          <br />
+          <p>🐙 github.com/aasif-developer</p>
+          <br />
+          <p>💼 LinkedIn Profile</p>
+        </div>
+
+        <div className="footer">
+          © 2026 Mohammed AASIF | Cyber Portfolio
+        </div>
+
       </div>
-    </div>
+    </>
   );
 }
-
-const styles = {
-  page: {
-    minHeight: "100vh",
-    padding: "40px",
-    color: "white",
-    fontFamily: "Poppins, sans-serif",
-    background:
-      "linear-gradient(135deg, #050816, #0b1120, #1a1f71, #6a11cb)",
-    position: "relative",
-    overflow: "hidden",
-  },
-
-  hero: {
-    display: "flex",
-    justifyContent: "space-between",
-    alignItems: "center",
-    flexWrap: "wrap",
-    gap: "30px",
-    marginBottom: "40px",
-  },
-
-  hello: {
-    color: "#4facfe",
-  },
-
-  name: {
-    fontSize: "4rem",
-    margin: "10px 0",
-  },
-
-  role: {
-    color: "#00f7ff",
-  },
-
-  desc: {
-    maxWidth: "600px",
-    color: "#d1d5db",
-    lineHeight: "1.8",
-  },
-
-  btn: {
-    padding: "15px 30px",
-    border: "none",
-    borderRadius: "50px",
-    background: "linear-gradient(90deg,#00f7ff,#8a2be2)",
-    color: "white",
-    fontWeight: "bold",
-    marginTop: "15px",
-    cursor: "pointer",
-    boxShadow: "0 0 20px #00f7ff",
-  },
-
-  imageBox: {
-    width: "320px",
-    height: "320px",
-    borderRadius: "50%",
-    padding: "8px",
-    background: "linear-gradient(45deg,#00f7ff,#8a2be2)",
-    boxShadow: "0 0 50px #00f7ff",
-  },
-
-  image: {
-    width: "100%",
-    height: "100%",
-    borderRadius: "50%",
-    objectFit: "cover",
-  },
-
-  card: {
-    background: "rgba(255,255,255,0.08)",
-    backdropFilter: "blur(12px)",
-    padding: "25px",
-    borderRadius: "20px",
-    marginBottom: "25px",
-    border: "1px solid rgba(255,255,255,0.1)",
-  },
-
-  skills: {
-    display: "flex",
-    gap: "15px",
-    flexWrap: "wrap",
-    marginTop: "15px",
-  },
-
-  skill: {
-    padding: "10px 20px",
-    borderRadius: "50px",
-    background: "rgba(0,247,255,0.15)",
-    border: "1px solid #00f7ff",
-  },
-
-  projects: {
-    display: "grid",
-    gridTemplateColumns: "repeat(auto-fit,minmax(300px,1fr))",
-    gap: "20px",
-    marginBottom: "25px",
-  },
-
-  project: {
-    background: "rgba(255,255,255,0.08)",
-    padding: "25px",
-    borderRadius: "20px",
-    border: "1px solid rgba(255,255,255,0.1)",
-    backdropFilter: "blur(12px)",
-  },
-
-  star1: {
-    position: "absolute",
-    width: "8px",
-    height: "8px",
-    background: "white",
-    borderRadius: "50%",
-    top: "10%",
-    left: "20%",
-    boxShadow: "0 0 20px white",
-  },
-
-  star2: {
-    position: "absolute",
-    width: "6px",
-    height: "6px",
-    background: "#00f7ff",
-    borderRadius: "50%",
-    top: "25%",
-    right: "10%",
-    boxShadow: "0 0 20px #00f7ff",
-  },
-
-  star3: {
-    position: "absolute",
-    width: "7px",
-    height: "7px",
-    background: "#8a2be2",
-    borderRadius: "50%",
-    top: "70%",
-    left: "15%",
-    boxShadow: "0 0 20px #8a2be2",
-  },
-
-  star4: {
-    position: "absolute",
-    width: "10px",
-    height: "10px",
-    background: "#fff",
-    borderRadius: "50%",
-    top: "85%",
-    right: "20%",
-    boxShadow: "0 0 25px white",
-  },
-};
 
 export default App;
