@@ -1,0 +1,88 @@
+.education {
+  background: var(--bg-alt);
+}
+
+.education__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 64px;
+}
+
+.education__block .section-title {
+  margin-bottom: 28px;
+}
+
+.education__item {
+  padding: 28px;
+}
+
+.education__period {
+  display: inline-block;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: var(--primary);
+  background: var(--primary-light);
+  padding: 4px 12px;
+  border-radius: 6px;
+  margin-bottom: 16px;
+}
+
+.education__degree {
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 6px;
+}
+
+.education__institution {
+  font-size: 0.9375rem;
+  color: var(--text-muted);
+  font-weight: 500;
+  margin-bottom: 12px;
+}
+
+.education__details {
+  font-size: 0.875rem;
+  color: var(--text-light);
+  line-height: 1.6;
+}
+
+.education__certs {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.education__cert {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 24px;
+  gap: 16px;
+}
+
+.education__cert h3 {
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: 4px;
+}
+
+.education__cert p {
+  font-size: 0.8125rem;
+  color: var(--text-muted);
+}
+
+.education__cert-year {
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: var(--primary);
+  white-space: nowrap;
+}
+
+@media (max-width: 768px) {
+  .education__grid {
+    grid-template-columns: 1fr;
+    gap: 48px;
+  }
+}
