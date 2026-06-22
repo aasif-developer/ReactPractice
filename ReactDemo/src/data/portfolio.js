@@ -10,7 +10,7 @@ export const profile = {
   email: "aasif.mohammed.dev@gmail.com",
   phone: "+91 98765 43210",
   github: "https://github.com/aasif-developer",
-  linkedin: "https://linkedin.com/in/mohammed-aasif",
+  linkedin: "https://www.linkedin.com/in/mohammed-aasif-dev",
   resumeUrl: "/resume.pdf",
   available: true,
 };
